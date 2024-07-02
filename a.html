@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            background-color: none;
+            border: 1px black solid;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body style="background-color: gray;">
+    <div class="container" style="display: grid; align-items: center; justify-content: center; text-align: center; background-color: white; width: 300px; border: 1px solid black; border-radius: 20px;">
+        <h1>CONTADOR</h1>
+        <label id="num">0</label>
+        <div class="buttons" style="padding: 5px; ">
+        <button class="btn plus">+</button>
+        <button class="btn reset">reset</button>
+        <button class="btn minus">-</button>
+    </div>
+    </div>
+    <script>
+        let count = 0;
+
+        const value = document.querySelector("#num");
+        const btns = document.querySelectorAll(".btn")
+
+        btns.forEach(function (btn) {
+            btn.addEventListener("click", function(e) {
+            const styles = e.currentTarget.classList;
+            if(styles.contains('minus')){
+                count--;
+            } else if(styles.contains('plus')) {
+                count++;
+            } else if(styles.contains('reset')) {
+                count = 0
+            }
+        value.textContent = count;
+    })
+});
+    </script>
+</body>
+</html>
